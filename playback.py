@@ -21,7 +21,7 @@ import pyqtgraph as pg
 from numpy import array
 from PyQt5.QtCore import pyqtSignal
 
-
+from mytable import mytable
 
 
 import numpy as np
@@ -159,8 +159,11 @@ class MyForm(QMainWindow):
         self.ser=serial.Serial()
         self.file_list=list()
     def slot_initialize(self):
+
         self.removefile_pushButton.clicked.connect(self.remove_file)
         self.addfile_pushButton.clicked.connect(self.add_record_file)
+
+
         self.connect_pushButton.clicked.connect(self.port_connect)
         self.disconnect_pushButton.clicked.connect(self.port_disconnect)
         self.start_pushButton.clicked.connect(self.start_process)
@@ -178,8 +181,26 @@ class MyForm(QMainWindow):
         self.output_result_checkBox.setChecked(True)
         self.recursive_test_checkBox.setChecked(True)
         self.reset_test_checkBox.setChecked(True)
-        
         self.treeView.doubleClicked.connect(self.test)
+
+
+        my = mytable()
+        my.setTextUp("test")
+        my.setTextDown("test")
+        myQListWidgetItem = QtGui.QListWidgetItem()
+        self.listWidget.addItem(myQListWidgetItem)
+        self.listWidget.setItemWidget(myQListWidgetItem, my)
+
+        my2 = mytable()
+        my2.setTextUp("test")
+        my2.setTextDown("test")
+        myQListWidgetItem = QtGui.QListWidgetItem()
+        self.listWidget.addItem(myQListWidgetItem)
+        self.listWidget.setItemWidget(myQListWidgetItem, my2)
+        
+
+
+
     def test(self,index):
         print(self.treeView.model().data(index))
 
@@ -267,6 +288,7 @@ class MyForm(QMainWindow):
         
         
     def add_record_file(self):
+        
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog  
         caption = 'Open file'
@@ -277,12 +299,13 @@ class MyForm(QMainWindow):
         #self.listWidget.addItems(filenames)
         
         # do not add duplicate files
+        '''
         for i in filenames:
             if not self.listWidget.findItems(i, Qt.MatchFixedString | Qt.MatchCaseSensitive):
                 self.listWidget.addItem(i)
             #filename = QtCore.QFileInfo(i).fileName()
             #self.listWidget.addItem(i)
-
+        '''
     def port_connect(self):
         comport = self.comport_comboBox.currentText()
         baudrate  = self.baudrate_comboBox.currentText()
@@ -320,10 +343,12 @@ class MyForm(QMainWindow):
         for port in ports :
            self.comport_comboBox.addItem(port.device)
         QApplication.restoreOverrideCursor()
-        
+    
     def remove_file(self):
-        self.listWidget.takeItem(self.listWidget.currentRow())
-        
+        print("remove")
+        #self.listWidget.takeItem(self.listWidget.currentRow())
+        #self.my.set_progress_bar_value(30)
+
     
 if __name__=="__main__":
 

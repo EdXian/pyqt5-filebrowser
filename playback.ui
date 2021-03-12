@@ -22,7 +22,7 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -158,17 +158,6 @@
               <layout class="QGridLayout" name="gridLayout_8">
                <item row="0" column="0">
                 <layout class="QGridLayout" name="gridLayout">
-                 <item row="0" column="1">
-                  <widget class="QPushButton" name="addfile_pushButton">
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset resource="resource.qrc">
-                     <normaloff>:/icon/add.png</normaloff>:/icon/add.png</iconset>
-                   </property>
-                  </widget>
-                 </item>
                  <item row="0" column="2">
                   <widget class="QPushButton" name="removefile_pushButton">
                    <property name="text">
@@ -180,8 +169,16 @@
                    </property>
                   </widget>
                  </item>
-                 <item row="1" column="0" colspan="3">
-                  <widget class="QListWidget" name="listWidget"/>
+                 <item row="0" column="1">
+                  <widget class="QPushButton" name="addfile_pushButton">
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="resource.qrc">
+                     <normaloff>:/icon/add.png</normaloff>:/icon/add.png</iconset>
+                   </property>
+                  </widget>
                  </item>
                  <item row="0" column="0">
                   <widget class="QPushButton" name="pushButton">
@@ -189,6 +186,9 @@
                     <string>add folder</string>
                    </property>
                   </widget>
+                 </item>
+                 <item row="1" column="0" colspan="3">
+                  <widget class="QListWidget" name="listWidget"/>
                  </item>
                 </layout>
                </item>
@@ -304,6 +304,22 @@
          <layout class="QVBoxLayout" name="plot_Layout"/>
         </item>
        </layout>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>Page</string>
+       </attribute>
+       <widget class="QWidget" name="verticalLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>120</y>
+          <width>671</width>
+          <height>331</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="custom_verticalLayout"/>
+       </widget>
       </widget>
      </widget>
     </item>
